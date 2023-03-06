@@ -160,10 +160,41 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String name = "0, 0";
+    }   
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String name = "1, 0";
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String name = "2, 0";
+    }   
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String name = "0, 1";
+    }     
+    
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String name = "1, 1";
+    }   
+    
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String name = "2, 1";
+    } 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String name = "0, 2";
+    }   
+    
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String name = "1, 2";
+    } 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String name = "2, 2";
+    }     
+        
+    
+    
   /**
    * @param args the command line arguments
    */
