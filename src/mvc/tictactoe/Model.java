@@ -74,6 +74,7 @@ public class Model implements MessageHandler {
         } else {
           this.board[row][col] = "O";
         }
+        whoseMove = !this.whoseMove;
         // Send the boardChange message along with the new board 
         this.mvcMessaging.notify("boardChange", this.board);
       }
@@ -85,6 +86,15 @@ public class Model implements MessageHandler {
       // Send the boardChange message along with the new board 
       this.mvcMessaging.notify("boardChange", this.board);
     }
+  }
+  
+  
+  private void findWinner(){
+      for (int i = 0; i < this.board.length; i++){
+          for (int j = 0; j < this.board[0].length; i++){
+              
+          }
+      }
   }
       
  }
