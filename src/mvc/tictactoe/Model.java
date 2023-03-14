@@ -89,11 +89,49 @@ public class Model implements MessageHandler {
   }
   
   
-  private void findWinner(){
-      for (int i = 0; i < this.board.length; i++){
-          for (int j = 0; j < this.board[0].length; i++){
-              
+  public void findWinner(){
+      //initalize counting variables
+      int co = 0;
+      int ro = 0;
+      int cx = 0;
+      int rx = 0;
+      
+      //check columns
+      for (int row = 0; row < this.board.length; row++){
+          for (int col = 0; col < this.board[0].length; col++){
+              if (this.board[row][col]!= null){
+                if (this.board[row][col].equals("X")){
+                    cx++;
+                }
+                if (this.board[row][col].equals("O")){
+                    co++;
+                }              
+              }
           }
+      }
+      //check Rows
+      for (int col = 0; col < this.board[0].length; col++){
+          for (int row = 0; row < this.board.length; row++){
+            if (this.board[row][col] != null){
+              if (this.board[row][col].equals("X")){
+                  rx++;
+              }
+              if (this.board[row][col].equals("O")){
+                  ro++;
+              }
+            }
+          }
+      }
+      
+      
+      //check for winner
+      if (co == this.board.length || ro == this.board.length){
+          System.out.println("O wins");
+          this.mvcMessaging.notify("gameOver", this.board);
+      }
+      if (cx == this.board.length || rx == this.board.length){
+          System.out.println("X wins");
+          this.mvcMessaging.notify("gameOver", this.board);
       }
   }
       

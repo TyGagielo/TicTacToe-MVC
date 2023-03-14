@@ -13,6 +13,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
   private final Messenger mvcMessaging;
   
+  Model model;
+  
   /**
    * Creates a new view
    * @param messages mvcMessaging object
@@ -20,6 +22,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
   public View(Messenger messages) {
     mvcMessaging = messages;   // Save the calling controller instance
     initComponents();  // Create and init the GUI components
+    
+    this.model = new Model(messages);
   }
   
   /**
@@ -247,7 +251,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     private void OnClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnClick
         JButton button = (JButton)evt.getSource();
         this.mvcMessaging.notify("playerMove", button.getName());
-
+        model.findWinner();
     }//GEN-LAST:event_OnClick
 
     
