@@ -23,7 +23,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     mvcMessaging = messages;   // Save the calling controller instance
     initComponents();  // Create and init the GUI components
     
-    this.model = new Model(messages);
+    this.model = new Model(messages);//instatiate model
   }
   
   /**
@@ -41,6 +41,10 @@ public class View extends javax.swing.JFrame implements MessageHandler {
       System.out.println("MSG: received by view: "+messageName+" | "+messagePayload.toString());
     } else {
       System.out.println("MSG: received by view: "+messageName+" | No data sent");
+    }
+    if (messageName.equals("gameOver")){
+        //set gameOver equal to true
+        model.setGameOver(true);
     }
     if (messageName.equals("boardChange")) {
       // Get the message payload and cast it as a 2D string array since we
@@ -251,10 +255,48 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     private void OnClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnClick
         JButton button = (JButton)evt.getSource();
         this.mvcMessaging.notify("playerMove", button.getName());
-        model.findWinner();
+        findWinner();
     }//GEN-LAST:event_OnClick
 
-    
+    private void findWinner(){
+        
+        String[][] status = new String[3][3];
+        status[0][0] = jButton1.getText();
+        status[0][1] = jButton2.getText();
+        status[0][2] = jButton3.getText();
+        status[1][0] = jButton4.getText();
+        status[1][1] = jButton5.getText();
+        status[1][2] = jButton6.getText();
+        status[2][0] = jButton7.getText();
+        status[2][1] = jButton8.getText();
+        status[2][2] = jButton9.getText();
+        
+        // Check the rows and columns for a tic tac toe
+        for (int i=0; i<3; i++) {
+          if (status[i][0].equals(status[i][1]) && status[i][0].equals(status[i][2]))
+            this.mvcMessaging.notify("gameOver", this);
+          
+          if (status[0][i].equals(status[1][i]) && status[0][i].equals(status[2][i]))
+            this.mvcMessaging.notify("gameOver", this);
+        }
+  
+        // Check the diagonals
+        if (status[0][0].equals(status[1][1]) && status[0][0].equals(status[2][2]))
+            this.mvcMessaging.notify("gameOver", this);
+        
+        if (status[0][2].equals(status[1][1]) && status[0][2].equals(status[2][0]))
+            this.mvcMessaging.notify("gameOver", this);
+        
+        int isFull = 0;
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if (!status[i][j].equals("")){isFull++;}
+            }
+        }
+        if (isFull == 9){
+            this.mvcMessaging.notify("gameOver", this);
+        }
+    }
     
   /**
    * @param args the command line arguments

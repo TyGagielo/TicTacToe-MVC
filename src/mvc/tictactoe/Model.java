@@ -27,6 +27,10 @@ public class Model implements MessageHandler {
     this.board = new String[3][3];
   }
   
+  public void setGameOver(boolean torf){
+      this.gameOver = torf;
+  }
+  
   /**
    * Initialize the model here and subscribe to any required messages
    */
@@ -61,7 +65,7 @@ public class Model implements MessageHandler {
     }
     
     // playerMove message handler
-    if (messageName.equals("playerMove")) {
+    if (messageName.equals("playerMove") && gameOver != true) {
       // Get the position string and convert to row and col
       String position = (String)messagePayload;
       Integer row = Integer.valueOf(position.substring(0,1));
@@ -87,52 +91,4 @@ public class Model implements MessageHandler {
       this.mvcMessaging.notify("boardChange", this.board);
     }
   }
-  
-  
-  public void findWinner(){
-      //initalize counting variables
-      int co = 0;
-      int ro = 0;
-      int cx = 0;
-      int rx = 0;
-      
-      //check columns
-      for (int row = 0; row < this.board.length; row++){
-          for (int col = 0; col < this.board[0].length; col++){
-              if (this.board[row][col]!= null){
-                if (this.board[row][col].equals("X")){
-                    cx++;
-                }
-                if (this.board[row][col].equals("O")){
-                    co++;
-                }              
-              }
-          }
-      }
-      //check Rows
-      for (int col = 0; col < this.board[0].length; col++){
-          for (int row = 0; row < this.board.length; row++){
-            if (this.board[row][col] != null){
-              if (this.board[row][col].equals("X")){
-                  rx++;
-              }
-              if (this.board[row][col].equals("O")){
-                  ro++;
-              }
-            }
-          }
-      }
-      
-      
-      //check for winner
-      if (co == this.board.length || ro == this.board.length){
-          System.out.println("O wins");
-          this.mvcMessaging.notify("gameOver", this.board);
-      }
-      if (cx == this.board.length || rx == this.board.length){
-          System.out.println("X wins");
-          this.mvcMessaging.notify("gameOver", this.board);
-      }
-  }
-      
  }
