@@ -23,6 +23,7 @@ public class Model implements MessageHandler {
    *   local messages between Model, View, and controller
    */
   public Model(Messenger messages) {
+    this.gameOver = false;
     mvcMessaging = messages;
     this.board = new String[3][3];
   }
@@ -65,13 +66,14 @@ public class Model implements MessageHandler {
     }
     
     // playerMove message handler
-    if (messageName.equals("playerMove") && gameOver != true) {
+    if (messageName.equals("playerMove")) {
       // Get the position string and convert to row and col
       String position = (String)messagePayload;
       Integer row = Integer.valueOf(position.substring(0,1));
       Integer col = Integer.valueOf(position.substring(1,2));
       // If square is blank...
-      if (this.board[row][col].equals("")) {
+      System.out.println(this.gameOver);
+      if (this.board[row][col].equals("") && this.gameOver == false) {
         // ... then set X or O depending on whose move it is
         if (this.whoseMove) {
           this.board[row][col] = "X";
