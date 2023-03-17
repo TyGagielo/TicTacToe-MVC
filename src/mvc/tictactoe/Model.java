@@ -30,6 +30,7 @@ public class Model implements MessageHandler {
   
   public void setGameOver(boolean torf){
       this.gameOver = torf;
+      
   }
   
   /**
@@ -42,6 +43,10 @@ public class Model implements MessageHandler {
     this.mvcMessaging.subscribe("newGame", this);
   }
   
+  
+  public void callNewGame(){
+      this.mvcMessaging.notify("newGame", this);
+  }
     /**
    * Reset the state for a new game
    */

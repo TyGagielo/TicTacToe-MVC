@@ -73,7 +73,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -82,6 +82,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,7 +94,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             }
         });
 
-        jLabel12.setText("DicDacDoe");
+        jLabel1.setText("TicDacDoe");
 
         jButton2.setName("01"); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +162,14 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             }
         });
 
+        jButton10.setText("New Game");
+        jButton10.setToolTipText("");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,32 +177,34 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(21, 21, 21)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12)
+                .addComponent(jLabel1)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
@@ -209,13 +220,14 @@ public class View extends javax.swing.JFrame implements MessageHandler {
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(251, 251, 251))
+                .addGap(18, 18, 18)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(186, 186, 186))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String name = "0, 1";
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -254,9 +266,15 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
     private void OnClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnClick
         JButton button = (JButton)evt.getSource();
-        findWinner();
         this.mvcMessaging.notify("playerMove", button.getName());
+        FindTie();
+        findWinner();
     }//GEN-LAST:event_OnClick
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        model.callNewGame();
+        jLabel1.setText("TicTacToe");
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     private void findWinner(){
         
@@ -273,19 +291,42 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         
         // Check the rows and columns for a tic tac toe
         for (int i=0; i<3; i++) {
-          if (status[i][0].equals(status[i][1]) && status[i][0].equals(status[i][2]) && !status[i][0].equals(""))
-            this.mvcMessaging.notify("gameOver", this);
+          if (status[i][0].equals(status[i][1]) && status[i][0].equals(status[i][2]) && !status[i][0].equals("")){
+              jLabel1.setText(status[i][0] + " WINS");
+              this.mvcMessaging.notify("gameOver", this);
+          }
           
-          if (status[0][i].equals(status[1][i]) && status[0][i].equals(status[2][i]) && !status[0][i].equals(""))
-            this.mvcMessaging.notify("gameOver", this);
+          if (status[0][i].equals(status[1][i]) && status[1][i].equals(status[2][i]) && !status[0][i].equals("")){
+              jLabel1.setText(status[0][i] + " WINS");
+              this.mvcMessaging.notify("gameOver", this);
+          }
         }
   
         // Check the diagonals
-        if (status[0][0].equals(status[1][1]) && status[0][0].equals(status[2][2]) && !status[0][0].equals(""))
+        if (status[0][0].equals(status[1][1]) && status[0][0].equals(status[2][2]) && !status[0][0].equals("")){
+            //change Label
+            jLabel1.setText(status[0][0] + " WINS");
             this.mvcMessaging.notify("gameOver", this);
+        }
         
-        if (status[0][2].equals(status[1][1]) && status[0][2].equals(status[2][0]) && !status[0][2].equals(""))
+        if (status[0][2].equals(status[1][1]) && status[0][2].equals(status[2][0]) && !status[0][2].equals("")){
+            jLabel1.setText(status[0][0] + " WINS");
             this.mvcMessaging.notify("gameOver", this);
+        }
+        
+        
+    }
+    private void FindTie(){
+        String[][] status = new String[3][3];
+        status[0][0] = jButton1.getText();
+        status[0][1] = jButton2.getText();
+        status[0][2] = jButton3.getText();
+        status[1][0] = jButton4.getText();
+        status[1][1] = jButton5.getText();
+        status[1][2] = jButton6.getText();
+        status[2][0] = jButton7.getText();
+        status[2][1] = jButton8.getText();
+        status[2][2] = jButton9.getText();
         
         int isFull = 0;
         for (int i = 0; i < 3; i++){
@@ -294,6 +335,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
             }
         }
         if (isFull == 9){
+            //change Label
+        jLabel1.setText("Tie Game");
             this.mvcMessaging.notify("gameOver", this);
         }
     }
@@ -304,6 +347,7 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -312,6 +356,6 @@ public class View extends javax.swing.JFrame implements MessageHandler {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
