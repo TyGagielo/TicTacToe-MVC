@@ -254,8 +254,8 @@ public class View extends javax.swing.JFrame implements MessageHandler {
 
     private void OnClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OnClick
         JButton button = (JButton)evt.getSource();
-        this.mvcMessaging.notify("playerMove", button.getName());
         findWinner();
+        this.mvcMessaging.notify("playerMove", button.getName());
     }//GEN-LAST:event_OnClick
 
     private void findWinner(){
@@ -273,18 +273,18 @@ public class View extends javax.swing.JFrame implements MessageHandler {
         
         // Check the rows and columns for a tic tac toe
         for (int i=0; i<3; i++) {
-          if (status[i][0].equals(status[i][1]) && status[i][0].equals(status[i][2]))
+          if (status[i][0].equals(status[i][1]) && status[i][0].equals(status[i][2]) && !status[i][0].equals(""))
             this.mvcMessaging.notify("gameOver", this);
           
-          if (status[0][i].equals(status[1][i]) && status[0][i].equals(status[2][i]))
+          if (status[0][i].equals(status[1][i]) && status[0][i].equals(status[2][i]) && !status[0][i].equals(""))
             this.mvcMessaging.notify("gameOver", this);
         }
   
         // Check the diagonals
-        if (status[0][0].equals(status[1][1]) && status[0][0].equals(status[2][2]))
+        if (status[0][0].equals(status[1][1]) && status[0][0].equals(status[2][2]) && !status[0][0].equals(""))
             this.mvcMessaging.notify("gameOver", this);
         
-        if (status[0][2].equals(status[1][1]) && status[0][2].equals(status[2][0]))
+        if (status[0][2].equals(status[1][1]) && status[0][2].equals(status[2][0]) && !status[0][2].equals(""))
             this.mvcMessaging.notify("gameOver", this);
         
         int isFull = 0;

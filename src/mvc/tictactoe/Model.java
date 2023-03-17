@@ -14,7 +14,7 @@ public class Model implements MessageHandler {
 
   // Model's data variables
   private boolean whoseMove;
-  private boolean gameOver;
+  private static boolean gameOver;
   private String[][] board;
 
   /**
